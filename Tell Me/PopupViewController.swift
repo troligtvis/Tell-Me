@@ -35,8 +35,8 @@ class PopupViewController: UIViewController {
 extension PopupViewController{
     func setupPopupView(){
         popupView.layer.cornerRadius = 10
-        //popupView.layer.borderColor = UIColor.black.cgColor
-        //popupView.layer.borderWidth = 0.25
+        popupView.layer.borderColor = UIColor.black.cgColor
+        popupView.layer.borderWidth = 0.25
         popupView.layer.shadowColor = UIColor.black.cgColor
         popupView.layer.shadowOpacity = 0.6
         popupView.layer.shadowRadius = 15
