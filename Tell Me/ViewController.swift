@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     let dimLevel: CGFloat = 0.5
     let dimSpeed: Double = 0.5
     
-    var currentAnswer: Answer?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareIntroLabel()
@@ -34,7 +32,6 @@ extension ViewController: Dimmable{
     
     func presentAnswer(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "Popup__View") as? PopupViewController else { return }
-        vc.answer = currentAnswer
         dim(direction: .up, alpha: dimLevel, speed: dimSpeed)
         present(vc, animated: true, completion: nil)
     }
@@ -46,17 +43,7 @@ extension ViewController{
         introLabel.attributedText = formattedString.normal(text: "Ask a ").bold(text: "yes", size: 17, weight: UIFontWeightBold).normal(text: " or ").bold(text: "no", size: 17, weight: UIFontWeightBold).normal(text: " question")
     }
     
-    @IBAction func click(sender: AnyObject){
-        requestAnswer()
-    }
-    
-    func requestAnswer(){
-        YesnoAPIManager.sharedInstance.fetchAnswer{
-            answer in
-            
-            guard let answer = answer else { return }
-            self.currentAnswer = answer
-            self.presentAnswer()
-        }
+    @IBAction func didPressPresentAnswer(sender: AnyObject){
+        self.presentAnswer()
     }
 }

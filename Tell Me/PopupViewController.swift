@@ -16,14 +16,17 @@ class PopupViewController: UIViewController {
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var imagePlaceholderView: UIView!
     
-    var answer: Answer!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     
+    
+    fileprivate var answer: Answer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupPopupView()
-        populateCard()
+        requestAnswer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +47,7 @@ extension PopupViewController{
         popupView.layer.masksToBounds = false
     }
     
-    func populateCard(){
+    func populateCard(withAnswer answer: Answer){
         let urlString = answer.url ?? ""
         let url = URL(string: urlString)
         
@@ -56,12 +59,50 @@ extension PopupViewController{
                 self.answerLabel.alpha = 1.0
             })
         })
+        
+        shareButton.isEnabled = true
+    }
+    
+    fileprivate func createCard(imageName name: String, withText text: String = ""){
+        answerLabel.text = text
+        answerLabel.alpha = 1.0
+        answerImageView.loadGif(name: name)
+        answerImageView.alpha = 1.0
+    }
+    
+    func populateCard(withCardType type: CardType){
+        switch type {
+        case .waiting: createCard(imageName: "waiting_1", withText: "Loading...")
+        case .notFound: createCard(imageName: "not_found_2")
+        }
+    }
+}
+
+extension PopupViewController {
+    func requestAnswer(){
+        populateCard(withCardType: .waiting)
+        
+        YesnoAPIManager.sharedInstance.fetchAnswer{
+            answer in
+            
+            guard let answer = answer else {
+                self.populateCard(withCardType: .notFound)
+                return
+            }
+            
+            self.presentAnswer(answer)
+        }
+    }
+    
+    func presentAnswer(_ answer: Answer){
+        self.answer = answer
+        populateCard(withAnswer: answer)
     }
 }
 
 extension PopupViewController{
     @IBAction func shareGif(){
-        guard let url = answer.url, let value = answer.value else { return }
+        guard let url = answer?.url, let value = answer?.value else { return }
         let activity = UIActivityViewController(activityItems: ["The answer is \(value)!", url], applicationActivities: nil)
         self.present(activity, animated: true, completion: nil)
     }

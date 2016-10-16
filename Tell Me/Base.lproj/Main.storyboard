@@ -24,7 +24,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vBa-yW-beu"/>
+                                    <action selector="didPressPresentAnswerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUQ-1q-Guk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask a yes or no question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-FF-fNx">
@@ -83,7 +83,7 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nGJ-nA-chn">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBc-3z-Qw5">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBc-3z-Qw5">
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" red="0.80051547288894653" green="0.26688078045845032" blue="0.16991129517555237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -148,8 +148,10 @@
                     <connections>
                         <outlet property="answerImageView" destination="5q2-kR-3zr" id="PPb-2a-Ldx"/>
                         <outlet property="answerLabel" destination="0PT-bn-RZY" id="sUV-Kw-Zba"/>
+                        <outlet property="closeButton" destination="BfX-jZ-dQY" id="TJH-sW-7wu"/>
                         <outlet property="imagePlaceholderView" destination="WnB-Ya-PTN" id="twU-uX-2zm"/>
                         <outlet property="popupView" destination="u9J-vh-z4C" id="W8H-ob-Onc"/>
+                        <outlet property="shareButton" destination="CBc-3z-Qw5" id="uSo-UU-NZ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mp-3U-ZG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
