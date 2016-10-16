@@ -72,7 +72,7 @@ extension PopupViewController{
     
     func populateCard(withCardType type: CardType){
         switch type {
-        case .waiting: createCard(imageName: "waiting_1", withText: "Loading...")
+        case .waiting: createCard(imageName: "waiting_1", withText: "Waiting..")
         case .notFound: createCard(imageName: "not_found_2")
         }
     }
