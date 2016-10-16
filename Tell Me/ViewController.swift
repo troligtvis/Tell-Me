@@ -67,6 +67,7 @@ extension ViewController{
         guard questionTextField.text != "" else { return }
         question = questionTextField.text
         questionTextField.text = ""
+        questionTextField.resignFirstResponder()
         presentAnswer()
     }
 }
