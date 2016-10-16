@@ -64,6 +64,7 @@ extension ViewController{
     }
     
     @IBAction func didPressPresentAnswer(sender: AnyObject){
+        guard questionTextField.text != "" else { return }
         question = questionTextField.text
         questionTextField.text = ""
         presentAnswer()
