@@ -18,49 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxy-gf-4PI">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Tell me the answer">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressPresentAnswerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUQ-1q-Guk"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask a yes or no question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-FF-fNx">
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and then" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDf-6y-ZGh">
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBx-le-N9i">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3Jq-BI-XV1">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask a yes or no question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-FF-fNx">
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BWZ-ZM-5ub">
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Is it me you're looking for" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWQ-82-xwc">
+                                                <frame key="frameInset" width="321" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" ambiguous="YES" text="?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfy-pt-AHz">
+                                                <frame key="frameInset" minX="325" width="10" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and then" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDf-6y-ZGh">
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBx-le-N9i">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxy-gf-4PI">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Tell me the answer">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressPresentAnswerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUQ-1q-Guk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.80051547288894653" green="0.26688078045845032" blue="0.16991129517555237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Dxy-gf-4PI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9ar-69-mx4"/>
-                            <constraint firstItem="hBx-le-N9i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="Fc4-bF-kln"/>
-                            <constraint firstAttribute="trailing" secondItem="hBx-le-N9i" secondAttribute="trailing" constant="20" symbolic="YES" id="GIq-Oc-3Hi"/>
-                            <constraint firstItem="ZDf-6y-ZGh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="GyP-d2-w2Y"/>
-                            <constraint firstItem="ZDf-6y-ZGh" firstAttribute="top" secondItem="Emm-FF-fNx" secondAttribute="bottom" constant="8" id="KIB-Wl-Ohd"/>
-                            <constraint firstAttribute="trailing" secondItem="Emm-FF-fNx" secondAttribute="trailing" constant="20" symbolic="YES" id="U6E-Si-IwQ"/>
-                            <constraint firstItem="hBx-le-N9i" firstAttribute="top" secondItem="ZDf-6y-ZGh" secondAttribute="bottom" constant="12" id="XMh-bZ-0nI"/>
-                            <constraint firstItem="hBx-le-N9i" firstAttribute="top" secondItem="ZDf-6y-ZGh" secondAttribute="bottom" constant="12" id="gRP-Ws-H5b"/>
-                            <constraint firstItem="Dxy-gf-4PI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gnM-sS-hAr"/>
-                            <constraint firstAttribute="trailing" secondItem="ZDf-6y-ZGh" secondAttribute="trailing" constant="20" symbolic="YES" id="vGc-xn-Vb6"/>
-                            <constraint firstItem="Dxy-gf-4PI" firstAttribute="top" secondItem="hBx-le-N9i" secondAttribute="bottom" constant="12" id="xHz-Oe-380"/>
-                            <constraint firstItem="Emm-FF-fNx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="yzp-Tz-Ftw"/>
+                            <constraint firstItem="3Jq-BI-XV1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="1xg-75-QlS"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jq-BI-XV1" secondAttribute="trailing" constant="20" symbolic="YES" id="HeR-2F-3vF"/>
+                            <constraint firstItem="3Jq-BI-XV1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gxh-7Q-4N6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerButton" destination="Dxy-gf-4PI" id="by3-4D-7mj"/>
                         <outlet property="introLabel" destination="Emm-FF-fNx" id="kuN-dS-gNg"/>
+                        <outlet property="pointingFingerLabel" destination="hBx-le-N9i" id="y6X-Z4-5Ta"/>
+                        <outlet property="questionTextField" destination="dWQ-82-xwc" id="7Ww-Qm-Qoo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

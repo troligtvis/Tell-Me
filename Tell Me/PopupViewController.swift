@@ -19,7 +19,7 @@ class PopupViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     
-    
+    var question: String!
     fileprivate var answer: Answer?
     
     override func viewDidLoad() {
@@ -102,8 +102,9 @@ extension PopupViewController {
 
 extension PopupViewController{
     @IBAction func shareGif(){
-        guard let url = answer?.url, let value = answer?.value else { return }
-        let activity = UIActivityViewController(activityItems: ["The answer is \(value)!", url], applicationActivities: nil)
+        guard let url = answer?.url, let a = answer?.value, let q = self.question else { return }
+        let text = "\(q)? The answer is \(a)!"
+        let activity = UIActivityViewController(activityItems: [text, url], applicationActivities: nil)
         self.present(activity, animated: true, completion: nil)
     }
 }

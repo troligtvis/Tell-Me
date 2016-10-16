@@ -16,6 +16,7 @@
 		2B2357871DAD758F003B435E /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2357861DAD758F003B435E /* PopupViewController.swift */; };
 		2B23578A1DAD83E1003B435E /* NSMutableAttributedString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2357891DAD83E1003B435E /* NSMutableAttributedString+extension.swift */; };
 		2B320F881DB406AF00F8C80B /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B320F871DB406AF00F8C80B /* CardType.swift */; };
+		2B320F8A1DB412BB00F8C80B /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B320F891DB412BB00F8C80B /* UIView+extension.swift */; };
 		2B3EF0AC1DB0AE0C004FC953 /* waiting_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EF0AB1DB0AE0C004FC953 /* waiting_2.gif */; };
 		2B3EF0B01DB0B3DF004FC953 /* not_found_1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EF0AD1DB0B3DF004FC953 /* not_found_1.gif */; };
 		2B3EF0B11DB0B3DF004FC953 /* not_found_2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2B3EF0AE1DB0B3DF004FC953 /* not_found_2.gif */; };
@@ -49,6 +50,7 @@
 		2B2357861DAD758F003B435E /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		2B2357891DAD83E1003B435E /* NSMutableAttributedString+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+extension.swift"; sourceTree = "<group>"; };
 		2B320F871DB406AF00F8C80B /* CardType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		2B320F891DB412BB00F8C80B /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		2B3EF0AB1DB0AE0C004FC953 /* waiting_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = waiting_2.gif; sourceTree = "<group>"; };
 		2B3EF0AD1DB0B3DF004FC953 /* not_found_1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = not_found_1.gif; sourceTree = "<group>"; };
 		2B3EF0AE1DB0B3DF004FC953 /* not_found_2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = not_found_2.gif; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				2B2357891DAD83E1003B435E /* NSMutableAttributedString+extension.swift */,
 				2B3EF0B41DB0B707004FC953 /* UIImage+extension.swift */,
+				2B320F891DB412BB00F8C80B /* UIView+extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				2B23577D1DAD644F003B435E /* Answer.swift in Sources */,
 				2B2357851DAD70F6003B435E /* Dimmable.swift in Sources */,
 				2B3EF0B51DB0B707004FC953 /* UIImage+extension.swift in Sources */,
+				2B320F8A1DB412BB00F8C80B /* UIView+extension.swift in Sources */,
 				2B798E2F1DAD623200124252 /* ViewController.swift in Sources */,
 				2B23577F1DAD648A003B435E /* ResponseJSONObjectSerializable.swift in Sources */,
 				2B798E2D1DAD623200124252 /* AppDelegate.swift in Sources */,
@@ -590,7 +594,7 @@
 				DEVELOPMENT_TEAM = 4QS2PECWP2;
 				INFOPLIST_FILE = "Tell Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "se.codefork.Tell-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = "se.codefork.Answer-Me-This";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -604,7 +608,7 @@
 				DEVELOPMENT_TEAM = 4QS2PECWP2;
 				INFOPLIST_FILE = "Tell Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "se.codefork.Tell-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = "se.codefork.Answer-Me-This";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

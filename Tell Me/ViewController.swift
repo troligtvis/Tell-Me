@@ -10,15 +10,34 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var introLabel: UILabel!
+    @IBOutlet weak var questionTextField: UITextField!
+    @IBOutlet weak var answerButton: UIButton!
+    
+    @IBOutlet weak var pointingFingerLabel: UILabel!
+    
     
     let dimLevel: CGFloat = 0.5
     let dimSpeed: Double = 0.5
     
+    var question: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareIntroLabel()
+        questionTextField.delegate = self
+        setupGesture()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,6 +51,7 @@ extension ViewController: Dimmable{
     
     func presentAnswer(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "Popup__View") as? PopupViewController else { return }
+        vc.question = question
         dim(direction: .up, alpha: dimLevel, speed: dimSpeed)
         present(vc, animated: true, completion: nil)
     }
@@ -44,6 +64,29 @@ extension ViewController{
     }
     
     @IBAction func didPressPresentAnswer(sender: AnyObject){
-        self.presentAnswer()
+        question = questionTextField.text
+        questionTextField.text = ""
+        presentAnswer()
+    }
+}
+
+extension ViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        didPressPresentAnswer(sender: self)
+        return true
+    }
+}
+
+extension ViewController{
+    func setupGesture(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.hideKeyboard))
+        tapGesture.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    func hideKeyboard(){
+        pointingFingerLabel.shake()
+        self.view.endEditing(true)
     }
 }
