@@ -14,6 +14,7 @@
 		2B0911291DC494A100EBC675 /* FavoriteAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0911281DC494A100EBC675 /* FavoriteAnswer.swift */; };
 		2B09112B1DC4964600EBC675 /* FavoriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B09112A1DC4964600EBC675 /* FavoriteManager.swift */; };
 		2B09112D1DC49B7300EBC675 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B09112C1DC49B7300EBC675 /* Icons.xcassets */; };
+		2B09112F1DC689CF00EBC675 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B09112E1DC689CF00EBC675 /* AboutViewController.swift */; };
 		2B23577D1DAD644F003B435E /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23577C1DAD644F003B435E /* Answer.swift */; };
 		2B23577F1DAD648A003B435E /* ResponseJSONObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23577E1DAD648A003B435E /* ResponseJSONObjectSerializable.swift */; };
 		2B2357811DAD64D9003B435E /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2357801DAD64D9003B435E /* AnswerType.swift */; };
@@ -54,6 +55,7 @@
 		2B0911281DC494A100EBC675 /* FavoriteAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteAnswer.swift; sourceTree = "<group>"; };
 		2B09112A1DC4964600EBC675 /* FavoriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteManager.swift; sourceTree = "<group>"; };
 		2B09112C1DC49B7300EBC675 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		2B09112E1DC689CF00EBC675 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		2B23577C1DAD644F003B435E /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		2B23577E1DAD648A003B435E /* ResponseJSONObjectSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseJSONObjectSerializable.swift; sourceTree = "<group>"; };
 		2B2357801DAD64D9003B435E /* AnswerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				2B798E2E1DAD623200124252 /* ViewController.swift */,
 				2B2357861DAD758F003B435E /* PopupViewController.swift */,
 				2B0911211DC4854900EBC675 /* FavoriteViewController.swift */,
+				2B09112E1DC689CF00EBC675 /* AboutViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				2B320F8A1DB412BB00F8C80B /* UIView+extension.swift in Sources */,
 				2B798E2F1DAD623200124252 /* ViewController.swift in Sources */,
 				2B23577F1DAD648A003B435E /* ResponseJSONObjectSerializable.swift in Sources */,
+				2B09112F1DC689CF00EBC675 /* AboutViewController.swift in Sources */,
 				2B0911221DC4854900EBC675 /* FavoriteViewController.swift in Sources */,
 				2B798E2D1DAD623200124252 /* AppDelegate.swift in Sources */,
 				2B2357871DAD758F003B435E /* PopupViewController.swift in Sources */,

@@ -23,4 +23,13 @@ extension NSMutableAttributedString {
         self.append(normal)
         return self
     }
+    
+    func link(find: String, url: String) {
+        let foundRange = self.mutableString.range(of: find)
+        guard foundRange.location != NSNotFound else {
+            return
+        }
+        
+        self.addAttribute(NSLinkAttributeName, value: url, range: foundRange)
+    }
 }

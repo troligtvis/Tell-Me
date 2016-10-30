@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--About-->
+        <scene sceneID="Upm-IC-VWB">
+            <objects>
+                <viewController id="Tzq-fQ-SCw" customClass="AboutViewController" customModule="Tell_Me" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qYS-pm-Rm2"/>
+                        <viewControllerLayoutGuide type="bottom" id="xLW-jc-q1L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uLE-Vu-Ni8">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Ask Me This&quot; app is using the api from" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKQ-3p-V4X">
+                                <rect key="frame" x="20" y="24" width="335" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.47450980390000003" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-Al-up7">
+                                <rect key="frame" x="125.5" y="68.5" width="123" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="https://yesno.wtf">
+                                    <color key="titleColor" red="1" green="0.47159892320632935" blue="0.41247245669364929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressLink" destination="Tzq-fQ-SCw" eventType="touchUpInside" id="lVL-y7-diA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UKQ-3p-V4X" firstAttribute="leading" secondItem="uLE-Vu-Ni8" secondAttribute="leading" constant="20" symbolic="YES" id="0CY-Gp-hTk"/>
+                            <constraint firstItem="Xvu-Al-up7" firstAttribute="centerX" secondItem="uLE-Vu-Ni8" secondAttribute="centerX" id="WEJ-gV-5hP"/>
+                            <constraint firstAttribute="trailing" secondItem="UKQ-3p-V4X" secondAttribute="trailing" constant="20" symbolic="YES" id="aER-Ud-WHh"/>
+                            <constraint firstItem="UKQ-3p-V4X" firstAttribute="top" secondItem="qYS-pm-Rm2" secondAttribute="bottom" constant="24" id="h23-Gt-s5H"/>
+                            <constraint firstItem="Xvu-Al-up7" firstAttribute="top" secondItem="UKQ-3p-V4X" secondAttribute="bottom" constant="24" id="mao-Mz-aUc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="About" id="rwd-S9-GOf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="0Mc-Hu-vZg">
+                            <color key="tintColor" red="1" green="0.47450980390000003" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didPressBackWithSender:" destination="Tzq-fQ-SCw" id="BpZ-S1-8m6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="aboutLabel" destination="UKQ-3p-V4X" id="rdq-vU-X9s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Rl-Zw-o6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176.8" y="-583.3583208395803"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -74,7 +128,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aZm-FY-QNL">
                                 <rect key="frame" x="20" y="617" width="335" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="131-VS-8ED">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="131-VS-8ED">
                                         <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Favorites">
@@ -84,9 +138,12 @@
                                             <action selector="didPressFavoritesWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Joh-SW-qnG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3G-vy-cK1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3G-vy-cK1">
                                         <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="didPressInfoWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y3O-Tk-TCP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -112,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="247" y="116"/>
         </scene>
-        <!--Favorite View Controller-->
+        <!--Favorites-->
         <scene sceneID="5Vd-m1-28R">
             <objects>
                 <viewController id="7f5-Ah-Ek6" customClass="FavoriteViewController" customModule="Tell_Me" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,7 +220,7 @@
                             <constraint firstItem="WYb-jn-M5x" firstAttribute="leading" secondItem="CO9-cg-hN6" secondAttribute="leading" id="rdW-KC-QHv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="X4X-NZ-2wR">
+                    <navigationItem key="navigationItem" title="Favorites" id="X4X-NZ-2wR">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="c9e-mg-XfE">
                             <color key="tintColor" red="1" green="0.47159892320632935" blue="0.41247245669364929" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -362,9 +419,12 @@
             <objects>
                 <navigationController storyboardIdentifier="Fav__Nav" automaticallyAdjustsScrollViewInsets="NO" id="r4D-ca-dMc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pNg-re-bWG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="pNg-re-bWG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.47450980390000003" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -374,6 +434,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc6-uB-Mk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="247" y="866"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1aA-sT-XyW">
+            <objects>
+                <navigationController storyboardIdentifier="About__Nav" automaticallyAdjustsScrollViewInsets="NO" id="1F3-Sf-uht" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="8Ak-Ba-3Yh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.47450980390000003" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tzq-fQ-SCw" kind="relationship" relationship="rootViewController" id="JIQ-mX-o9A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNT-e3-ZJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="237.59999999999999" y="-582.45877061469275"/>
         </scene>
     </scenes>
     <resources>

@@ -28,10 +28,6 @@ class ViewController: UIViewController {
         setupGesture()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
@@ -81,7 +77,11 @@ extension ViewController{
     }
     
     @IBAction func didPressInfo(sender: AnyObject){
+        guard let nav = storyboard?.instantiateViewController(withIdentifier: "About__Nav") as? UINavigationController else {
+            return
+        }
         
+        present(nav, animated: true, completion: nil)
     }
 }
 
