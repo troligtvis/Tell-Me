@@ -15,6 +15,22 @@ final class Answer: ResponseJSONObjectSerializable{
     let url: String?
     let forced: Bool?
     
+    var isFavorite: Bool = false
+    var question: String = ""
+    
+    init(value: String?, url: String?){
+        self.value = value
+        self.url = url
+        self.forced = false
+    }
+    
+    init(fav: FavoriteAnswer){
+        self.value = fav.value
+        self.url = fav.imageUrl
+        self.question = fav.question
+        self.forced = false
+    }
+    
     init?(json: JSON) {
         self.value = json["answer"].string
         self.forced = json["forced"].bool

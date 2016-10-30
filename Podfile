@@ -9,6 +9,8 @@ target 'Tell Me' do
   pod 'SwiftyJSON', :git => 'https://github.com/acegreen/SwiftyJSON.git', :branch => 'swift3'
   pod 'Alamofire', '~> 4.0'
   pod 'Kingfisher', '~> 3.0'
+  pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', :submodules => true
+  pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'master', :submodules => true
 
   target 'Tell MeTests' do
     inherit! :search_paths

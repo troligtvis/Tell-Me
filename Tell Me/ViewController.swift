@@ -70,6 +70,19 @@ extension ViewController{
         questionTextField.resignFirstResponder()
         presentAnswer()
     }
+    
+    @IBAction func didPressFavorites(sender: AnyObject){
+        guard let nav = storyboard?.instantiateViewController(withIdentifier: "Fav__Nav") as? UINavigationController else {
+            // TODO: - No favorites
+            return
+        }
+        
+        present(nav, animated: true, completion: nil)
+    }
+    
+    @IBAction func didPressInfo(sender: AnyObject){
+        
+    }
 }
 
 extension ViewController: UITextFieldDelegate{
@@ -88,7 +101,7 @@ extension ViewController{
     }
     
     func hideKeyboard(){
-        pointingFingerLabel.shake()
+        //pointingFingerLabel.shake()
         self.view.endEditing(true)
     }
 }

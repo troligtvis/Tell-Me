@@ -18,5 +18,15 @@ public extension UIView {
         animation.autoreverses = true
         animation.byValue = translation ?? -5
         layer.add(animation, forKey: "shake")
-    }    
+    }
+    
+    func shadowfy(){
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 0.25
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.6
+        self.layer.shadowRadius = 10
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.layer.masksToBounds = false
+    }
 }
