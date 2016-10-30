@@ -25,6 +25,4 @@ class FavoriteTableViewDataSource: NSObject, UITableViewDataSource {
         cell.detailTextLabel?.text = answer.value
         return cell
     }
-    
-    
 }

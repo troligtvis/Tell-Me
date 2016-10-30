@@ -11,7 +11,19 @@ import Kingfisher
 
 
 class PopupViewController: UIViewController {
-    @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var popupView: UIView! {
+        didSet{
+            popupView.layer.cornerRadius = 10
+            popupView.layer.borderColor = UIColor.black.cgColor
+            popupView.layer.borderWidth = 0.25
+            popupView.layer.shadowColor = UIColor.black.cgColor
+            popupView.layer.shadowOpacity = 0.6
+            popupView.layer.shadowRadius = 15
+            popupView.layer.shadowOffset = CGSize(width: 5, height: 5)
+            popupView.layer.masksToBounds = false
+        }
+    }
+    
     @IBOutlet weak var answerImageView: UIImageView!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var imagePlaceholderView: UIView!
@@ -28,27 +40,33 @@ class PopupViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
     
-    var question: String!
-    var answer: Answer?
+
+    fileprivate var answer: Answer?
     fileprivate var url: URL?
-    fileprivate var favoriteAnswer: FavoriteAnswer?
+    var favoriteAnswer: FavoriteAnswer?
+    var question: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPopupView()
         setupButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard let answer = answer else {
+        guard let fav = favoriteAnswer else {
             questionLabel.text = "\(question!)?"
             requestAnswer()
             return
         }
         
+        guard let answer = Answer(fav: fav) else { return }
+        self.answer = answer
+
+        favoriteImageVIew.image = UIImage(named: "star_icon_filled")
+        answer.isFavorite = true
+
         question = answer.question
         questionLabel.text = "\(question!)?"
         populateCard(withAnswer: answer)
@@ -66,17 +84,6 @@ class PopupViewController: UIViewController {
 }
 
 extension PopupViewController{
-    func setupPopupView(){
-        popupView.layer.cornerRadius = 10
-        popupView.layer.borderColor = UIColor.black.cgColor
-        popupView.layer.borderWidth = 0.25
-        popupView.layer.shadowColor = UIColor.black.cgColor
-        popupView.layer.shadowOpacity = 0.6
-        popupView.layer.shadowRadius = 15
-        popupView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        popupView.layer.masksToBounds = false
-    }
-    
     func setupButtons(){
         favoriteView.layer.cornerRadius = favoriteView.frame.width / 2
         shareView.layer.cornerRadius = shareView.frame.width / 2
@@ -163,12 +170,6 @@ extension PopupViewController{
         let downloader = ImageCacheManager.sharedInstance.downloader
         let cache = ImageCacheManager.sharedInstance.cache
         
-        if let fav = FavoriteManager.sharedInstance.fetchFavorite(cacheKey: url?.cacheKey ?? "") {
-            favoriteAnswer = fav
-            favoriteImageVIew.image = UIImage(named: "star_icon_filled")
-            answer.isFavorite = true
-        }
-        
         answerLabel.text = answer.value ?? ""
         answerImageView.kf_indicatorType = .activity
         answerImageView.kf_setImage(with: url, placeholder: nil, options: [.downloader(downloader), .targetCache(cache)], progressBlock: nil){ _ in
@@ -217,28 +218,32 @@ extension PopupViewController {
 
 extension PopupViewController{
     @IBAction func didPressFavorite(sender: AnyObject){
-        guard let answer = answer, let cacheKey = url?.cacheKey else { return }
+        guard let answer = answer else {
+            print("No answer!")
+            return
+        }
         answer.isFavorite = !answer.isFavorite
     
         favoriteImageVIew.image = UIImage(named: answer.isFavorite ? "star_icon_filled" : "star_icon_unfilled")
         
         if answer.isFavorite {
             let fav = FavoriteAnswer()
-            fav.cacheKey = cacheKey
+            fav.cacheKey = ""
             fav.question = question
             fav.value = answer.value ?? ""
             fav.imageUrl = answer.url ?? ""
             
             FavoriteManager.sharedInstance.add(answer: fav)
             
+            favoriteAnswer = fav
             animateWiggleButton(favoriteView)
         } else {
-            guard favoriteAnswer != nil else {
+            guard let id = favoriteAnswer?.answerId else {
                 print("No favorite answer saved :/")
                 return
             }
             
-            FavoriteManager.sharedInstance.removeAnswer(withId: cacheKey)
+            FavoriteManager.sharedInstance.removeAnswer(withId: id)
         }
     }
     

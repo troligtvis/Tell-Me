@@ -101,7 +101,6 @@ extension ViewController{
     }
     
     func hideKeyboard(){
-        //pointingFingerLabel.shake()
         self.view.endEditing(true)
     }
 }

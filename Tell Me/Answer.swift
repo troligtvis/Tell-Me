@@ -24,7 +24,7 @@ final class Answer: ResponseJSONObjectSerializable{
         self.forced = false
     }
     
-    init(fav: FavoriteAnswer){
+    init?(fav: FavoriteAnswer){
         self.value = fav.value
         self.url = fav.imageUrl
         self.question = fav.question

@@ -14,6 +14,7 @@ class FavoriteViewController: UIViewController {
     
     fileprivate var dataSource: UITableViewDataSource?
     fileprivate var selectedAnswer: Answer?
+    fileprivate var selectedFav: FavoriteAnswer?
     let dimLevel: CGFloat = 0.5
     let dimSpeed: Double = 0.5
     
@@ -42,7 +43,8 @@ extension FavoriteViewController: Dimmable{
     
     func presentAnswer(){
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "Popup__View") as? PopupViewController else { return }
-        vc.answer = selectedAnswer
+        //vc.answer = selectedAnswer
+        vc.favoriteAnswer = selectedFav
         dim(direction: .up, alpha: dimLevel, speed: dimSpeed)
         present(vc, animated: true, completion: nil)
     }
@@ -62,7 +64,7 @@ extension FavoriteViewController: UITableViewDelegate {
         }
         
         let fav = data.favoriteAnswers[indexPath.row]
-        selectedAnswer = Answer(fav: fav)
+        selectedFav = fav
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         

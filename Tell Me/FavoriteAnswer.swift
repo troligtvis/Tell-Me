@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class FavoriteAnswer: Object {
-    // dynamic var answerId = NSUUID().uuidString
+    dynamic var answerId = NSUUID().uuidString
     dynamic var cacheKey: String = ""
     
     dynamic var imageUrl: String = ""
@@ -18,6 +18,6 @@ class FavoriteAnswer: Object {
     dynamic var question: String = ""
     
     override class func primaryKey() -> String? {
-        return "cacheKey"
+        return "answerId"
     }
 }

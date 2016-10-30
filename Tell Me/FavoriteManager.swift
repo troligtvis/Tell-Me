@@ -41,8 +41,8 @@ class FavoriteManager {
         }
     }
     
-    func fetchFavorite(cacheKey: String) -> FavoriteAnswer? {
-        return realm.objects(FavoriteAnswer.self).filter(NSPredicate(format: "cacheKey = %@", cacheKey)).first
+    func fetchFavorite(withId id: String) -> FavoriteAnswer? {
+        return realm.objects(FavoriteAnswer.self).filter(NSPredicate(format: "answerId = %@", id)).first
     }
     
     func fetchAll() -> Results<FavoriteAnswer> {
