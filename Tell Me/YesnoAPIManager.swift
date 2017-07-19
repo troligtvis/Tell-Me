@@ -7,36 +7,41 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
-
 
 class YesnoAPIManager {
     static let sharedInstance = YesnoAPIManager()
     fileprivate let baseUrl = "https://yesno.wtf/api"
+    fileprivate let session = URLSession(configuration: .default)
     
-    func fetchAnswer(completionHandler: @escaping (Answer?) -> Void){
+    func fetchAnswerV2(completion: @escaping (Answer?) -> Void){
         guard let url = URL(string: baseUrl) else {
-            // TODO: - Return default image/gif
-            completionHandler(nil)
+            completion(nil)
             return
         }
         
-        Alamofire.request(url).responseJSON{
-            response in
+        let task = session.dataTask(with: url) {
+            data, response, error in
             
-            switch response.result{
-            case .success(let value):
-                let json = JSON(value)
-                
-                let answer = Answer(json: json)
-                completionHandler(answer)
-            case .failure(let error):
-                // TODO: - Return not found image/gif
+            if let error = error {
                 print(error.localizedDescription)
-                completionHandler(nil)
-                break
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil)
+                return
+            }
+            
+            do {
+                let json = try JSON(data: data)
+                let answer = Answer(json: json)
+                completion(answer)
+            } catch {
+                completion(nil)
             }
         }
+        
+        task.resume()
     }
 }

@@ -74,12 +74,8 @@ class PopupViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateButtons()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.animateButtons()
     }
 }
 
@@ -127,11 +123,11 @@ extension PopupViewController{
     
     func animateWiggleButton(_ v: UIView){
         UIView.animate(withDuration: 0.1, animations: {
-            v.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI/12))
+            v.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/12))
             
         }, completion: { finish in
             UIView.animate(withDuration: 0.1, animations: {
-                v.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI/12))
+                v.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/12))
                 
             }, completion: { finish in
                 UIView.animate(withDuration: 0.1, animations: {
@@ -144,15 +140,15 @@ extension PopupViewController{
     
     func wiggleButtons(){
         UIView.animate(withDuration: 0.2, animations: {
-            self.closeView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI/12))
-            self.favoriteView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI/12))
-            self.shareView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI/12))
+            self.closeView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/12))
+            self.favoriteView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/12))
+            self.shareView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi/12))
             
         }, completion: { finish in
             UIView.animate(withDuration: 0.2, animations: {
-                self.closeView.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI/12))
-                self.favoriteView.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI/12))
-                self.shareView.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI/12))
+                self.closeView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/12))
+                self.favoriteView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/12))
+                self.shareView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/12))
                 
             }, completion: { finish in
                 UIView.animate(withDuration: 0.2, animations: {
@@ -198,7 +194,7 @@ extension PopupViewController {
     func requestAnswer(){
         populateCard(withCardType: .waiting)
         
-        YesnoAPIManager.sharedInstance.fetchAnswer{
+        YesnoAPIManager.sharedInstance.fetchAnswerV2{
             answer in
             
             guard let answer = answer else {
@@ -212,7 +208,10 @@ extension PopupViewController {
     
     func presentAnswer(_ answer: Answer){
         self.answer = answer
-        populateCard(withAnswer: answer)
+        
+        DispatchQueue.main.async {
+            self.populateCard(withAnswer: answer)
+        }
     }
 }
 
