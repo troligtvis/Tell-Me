@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Tell MeTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,11 +27,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>495211CDFC2BE6A6E2DFA8846EDB89EF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>82DEBBD493676468ED7D26D74A6FE621</key>
 		<dict>
 			<key>primary</key>

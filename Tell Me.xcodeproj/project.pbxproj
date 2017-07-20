@@ -36,7 +36,6 @@
 		2B798E371DAD623200124252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B798E351DAD623200124252 /* LaunchScreen.storyboard */; };
 		2B798E421DAD623200124252 /* Tell_MeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B798E411DAD623200124252 /* Tell_MeTests.swift */; };
 		2B86C5611F2000C2008D857C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B86C5601F2000C2008D857C /* SwiftyJSON.swift */; };
-		AB696C5400A4E0805E1C9A8A /* Pods_Tell_MeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FBA8B1F3EAAD7FB6AC500A /* Pods_Tell_MeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,9 +84,7 @@
 		630167742157429187A01625 /* Pods-Tell Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tell Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tell Me/Pods-Tell Me.debug.xcconfig"; sourceTree = "<group>"; };
 		67D11FBBEB8D157536AB74A8 /* Pods_Tell_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tell_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7325DF3773AC644175EC29C6 /* Pods-Tell Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tell Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tell Me/Pods-Tell Me.release.xcconfig"; sourceTree = "<group>"; };
-		748925E3A2FE3392020323CA /* Pods-Tell MeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tell MeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tell MeTests/Pods-Tell MeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0FBA8B1F3EAAD7FB6AC500A /* Pods_Tell_MeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tell_MeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2E21D6721B6269707C36F21 /* Pods-Tell MeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tell MeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tell MeTests/Pods-Tell MeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +100,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB696C5400A4E0805E1C9A8A /* Pods_Tell_MeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +263,6 @@
 			children = (
 				630167742157429187A01625 /* Pods-Tell Me.debug.xcconfig */,
 				7325DF3773AC644175EC29C6 /* Pods-Tell Me.release.xcconfig */,
-				748925E3A2FE3392020323CA /* Pods-Tell MeTests.debug.xcconfig */,
-				A2E21D6721B6269707C36F21 /* Pods-Tell MeTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -309,12 +303,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B798E491DAD623200124252 /* Build configuration list for PBXNativeTarget "Tell MeTests" */;
 			buildPhases = (
-				C9A3F1C7B4E508333405D5AD /* [CP] Check Pods Manifest.lock */,
 				2B798E391DAD623200124252 /* Sources */,
 				2B798E3A1DAD623200124252 /* Frameworks */,
 				2B798E3B1DAD623200124252 /* Resources */,
-				F3419CB91CCC1336F3844E38 /* [CP] Embed Pods Frameworks */,
-				8E29AE09ECFB302AE5A0C0EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -409,37 +400,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tell Me/Pods-Tell Me-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8E29AE09ECFB302AE5A0C0EC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tell MeTests/Pods-Tell MeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		959D2680498A56342F66DEC1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C9A3F1C7B4E508333405D5AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -467,21 +428,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tell Me/Pods-Tell Me-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F3419CB91CCC1336F3844E38 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tell MeTests/Pods-Tell MeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -672,7 +618,6 @@
 		};
 		2B798E4A1DAD623200124252 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 748925E3A2FE3392020323CA /* Pods-Tell MeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -688,7 +633,6 @@
 		};
 		2B798E4B1DAD623200124252 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2E21D6721B6269707C36F21 /* Pods-Tell MeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
